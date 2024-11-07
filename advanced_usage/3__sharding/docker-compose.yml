@@ -1,0 +1,32 @@
+version: '3'
+
+# Создаем два сервера PostgreSQL, которые будут использоваться как шарды.
+# Один сервер будет хранить одну часть данных, другой — вторую.
+services:
+  shard1:
+    image: postgres:15
+    container_name: postgres_shard1
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: shard1_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - shard1_data:/var/lib/postgresql/data
+
+  shard2:
+    image: postgres:15
+    container_name: postgres_shard2
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: shard2_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - shard2_data:/var/lib/postgresql/data
+
+volumes:
+  shard1_data:
+  shard2_data:

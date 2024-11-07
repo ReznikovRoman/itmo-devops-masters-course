@@ -1,0 +1,23 @@
+import psycopg2
+
+
+def main():
+    connection = psycopg2.connect(
+        dbname="postgres",
+        user="roman",
+        host="localhost",
+        port="5432",
+    )
+
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM _example;")
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+
+    cursor.close()
+    connection.close()
+
+
+if __name__ == '__main__':
+    main()
