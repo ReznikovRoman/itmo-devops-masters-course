@@ -1,8 +1,13 @@
+from rest_framework.exceptions import ValidationError
+
+
 def add(x: int, y: str) -> int:
     result = x + y
     return result
 
 def divide(x: int, y: int) -> float:
+    if y == 0:
+        raise ValueError
     return x / y
 
 
