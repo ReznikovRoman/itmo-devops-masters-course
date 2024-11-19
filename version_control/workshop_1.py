@@ -8,6 +8,10 @@ def divide(x: int, y: int) -> float:
     return x / y
 
 
+def multiply(x: int, y: int) -> int:
+    return x * y
+
+
 def main():
     print(add(1, 3))
 
