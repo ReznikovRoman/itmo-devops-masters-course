@@ -1,4 +1,4 @@
-def add(x: int, y: str) -> int:
+def add(x: int, y: int) -> int:
     result = x + y
     return result
 
