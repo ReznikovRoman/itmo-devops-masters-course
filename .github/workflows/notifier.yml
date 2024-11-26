@@ -1,0 +1,16 @@
+name: Pull Request Workflow
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  handle-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Handle notification
+        run: |
+            echo "Pull request #${{ github.event.number }} to branch ${{ github.event.pull_request.base.ref }}. No notifications sent in development."
