@@ -10,6 +10,9 @@
 3. Продвинутая эксплуатация PostgreSQL
    - [Теория](https://piquant-leech-9ea.notion.site/3-137861e0489f806d81f6dc600011755d?pvs=4)
    - [Примеры](./advanced_usage)
+4. Продвинутое использование CI/CD. Мониторинг приложений
+   - [Теория](https://piquant-leech-9ea.notion.site/CI-CD-15f861e0489f8071b60ac12433e1394b)
+   - [Примеры](./monitoring)
 
 ## Темы на уроках
 1. Самое базовое про базы данных на примере postgresql:
@@ -30,3 +33,9 @@
    - репликация - master-slave, паттерн "пишем в мастер - читаем из реплик"
    - шардирование: на стороне приложений, обзор сторонних решений
    - CAP-теорема и обзор альтернативных "БД": mysql / mongodb / cassandra / clickhouse / redis
+
+4. Продвинутое использование CI/CD. Мониторинг приложений
+   - [SonarQube](https://docs.sonarsource.com/sonarqube-cloud/). Платформа для статического анализа кода
+   - [Prometheus](https://prometheus.io/docs/introduction/overview/). Система сбора метрик и мониторинга приложений
+   - [Grafana](https://grafana.com/docs/grafana/latest/introduction/). Инструмент для визуализации метрик и
+анализа поведения системы в реальном времени
