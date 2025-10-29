@@ -94,7 +94,7 @@ WHERE rn = 1;
 WITH server_load_agg AS (
     SELECT server_id, AVG(cpu_load) OVER (PARTITION BY server_id) AS avg_cpu_load
     FROM server_loads
-    WHERE timestamp >= NOW() - INTERVAL '1 day'
+    WHERE timestamp >= date('2024-10-23') - INTERVAL '1 day'
 )
 SELECT server_id, COUNT(*) AS metric_count, AVG(avg_cpu_load) AS avg_cpu_load
 FROM server_load_agg

@@ -15,7 +15,9 @@ SELECT s.name, COUNT(srv.id)
 FROM servers s
 LEFT JOIN server_service ss ON s.id = ss.server_id
 LEFT JOIN services srv ON srv.id = ss.service_id
-GROUP BY s.name;
+WHERE s.status = TRUE
+GROUP BY s.name
+HAVING COUNT(srv.id) > 0;
 
 SELECT id, config->>'cpu' FROM servers WHERE name = 'Web Server';
 

@@ -2,8 +2,10 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 15.8 (Debian 15.8-1.pgdg120+1)
--- Dumped by pg_dump version 15.8 (Debian 15.8-1.pgdg120+1)
+\restrict NdTyidWJL6zHrG6Pyg8pYFTnaRvt28NnLl3HcewFfdhbubt0syhKkG0M2OmeOet
+
+-- Dumped from database version 15.14 (Debian 15.14-1.pgdg13+1)
+-- Dumped by pg_dump version 15.14 (Debian 15.14-1.pgdg13+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -67,9 +69,9 @@ ALTER TABLE ONLY public.products ALTER COLUMN id SET DEFAULT nextval('public.pro
 --
 
 COPY public.products (id, name, price) FROM stdin;
-7	Product A	10.99
-8	Product B	20.50
-9	Product C	15.00
+1	Product A	10.99
+2	Product B	20.50
+3	Product C	15.00
 \.
 
 
@@ -77,7 +79,7 @@ COPY public.products (id, name, price) FROM stdin;
 -- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user
 --
 
-SELECT pg_catalog.setval('public.products_id_seq', 9, true);
+SELECT pg_catalog.setval('public.products_id_seq', 3, true);
 
 
 --
@@ -91,4 +93,6 @@ ALTER TABLE ONLY public.products
 --
 -- PostgreSQL database dump complete
 --
+
+\unrestrict NdTyidWJL6zHrG6Pyg8pYFTnaRvt28NnLl3HcewFfdhbubt0syhKkG0M2OmeOet
 

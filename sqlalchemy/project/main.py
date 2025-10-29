@@ -38,7 +38,7 @@ class Service(Base):
     __tablename__ = 'services'
 
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
-    name = sa.Column(sa.String(50), nullable=False)
+    name = sa.Column(sa.String(50), nullable=False, index=True)
 
     # Связь с серверами через таблицу связки
     servers = relationship('Server', secondary=server_service_association, back_populates='services')

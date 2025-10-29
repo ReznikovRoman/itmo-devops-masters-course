@@ -15,8 +15,8 @@ INSERT INTO students (name, age, email) VALUES ('Bob', 23, 'bob@example.com');
 
 -- SELECT
 SELECT * FROM students;
-SELECT name, age FROM students WHERE age > 25;
-SELECT COUNT(id) FROM students WHERE age > 25;
+SELECT name, age FROM students WHERE age > 22;
+SELECT COUNT(1) FROM students WHERE age > 22;
 SELECT * FROM students WHERE email = 'bob@example.com';  -- Использование индекса для поиска по email
 
 -- UPDATE
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS enrollments (
     course_id INT,
     enrollment_date DATE,
     -- ...
-    PRIMARY KEY (student_id, course_id),
+    PRIMARY KEY (course_id, student_id),
     CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES students(id),
     CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES courses(id)
 );
@@ -105,5 +105,5 @@ SELECT
 FROM enrollments e
 JOIN courses c on e.course_id = c.id
 GROUP BY course_id
-HAVING COUNT(student_id) > 3;
+HAVING COUNT(student_id) > 1;
 -- Этот запрос вернет только те курсы, на которые записано более 5 студентов.

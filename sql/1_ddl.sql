@@ -10,8 +10,9 @@ CREATE TABLE IF NOT EXISTS _example (
 
 ALTER TABLE _example ADD COLUMN IF NOT EXISTS email VARCHAR(255) NOT NULL default '';
 
-ALTER TABLE _example ADD COLUMN IF NOT EXISTS _temp VARCHAR(10) DEFAULT '';
+ALTER TABLE _example ADD COLUMN IF NOT EXISTS _temp VARCHAR(10);
 ALTER TABLE _example ALTER COLUMN _temp TYPE VARCHAR(200);
+
 ALTER TABLE _example ALTER COLUMN _temp SET NOT NULL;
 ALTER TABLE _example DROP COLUMN IF EXISTS _temp;
 
@@ -30,12 +31,12 @@ INSERT INTO _example (name, age, email) VALUES ('Alex', 22, 'alex@gmail.com');
 
 SELECT * FROM _example;
 
-UPDATE _example SET age = 26, email='alice@gmail.com' WHERE name = 'Alice';
+UPDATE _example SET age = 26, email='alice@gmail.com' where name = 'Alice';
 
 SELECT
     e.id, e.name, e.email
 FROM _example e
-WHERE age = 23;
+WHERE age > 23;
 
 SELECT * FROM _example WHERE name ilike 'a%';
 
