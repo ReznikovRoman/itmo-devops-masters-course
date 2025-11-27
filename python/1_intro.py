@@ -1,5 +1,10 @@
 import psycopg2
 
+x = "dghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsfdghfhsf"
+
+def ABC():
+    return 2 / 0
+
 
 def main():
     connection = psycopg2.connect(
