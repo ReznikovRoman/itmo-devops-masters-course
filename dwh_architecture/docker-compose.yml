@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_dwh_architecture
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dwh_db
+    ports:
+      - "5436:5432"
+    volumes:
+      - dwh_architecture_data:/var/lib/postgresql/data
+
+volumes:
+  dwh_architecture_data:
