@@ -1,0 +1,20 @@
+# Вариант "устаревшая зависимость"
+# Зависимости ставятся командой, текст которой не зависит от requirements.txt.
+
+# Docker сравнивает для RUN только текст инструкции и родительский слой -- поэтому
+# при сохранённом кэше (локально, self-hosted runner, cache-from) он возьмёт
+# старый слой, даже если версии в requirements.txt уже обновили.
+# Без кэша (чистый runner) проблема НЕ воспроизводится - поэтому она "плавающая".
+FROM python:3.12-slim
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir fastapi uvicorn
+
+COPY app ./app
+
+ARG GIT_SHA=unknown
+ENV GIT_SHA=$GIT_SHA
+
+EXPOSE 8000
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
