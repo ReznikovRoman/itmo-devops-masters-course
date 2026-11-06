@@ -16,9 +16,9 @@ lint: ## Статический анализ (pylint)
 test: ## Тесты + отчёт report.xml (junit)
 	python -m pytest --junitxml=report.xml
 
-check: lint test ## То же, что запускает CI: lint + test
+check: lint test ## CI: lint + test
 
-build: ## Собрать образ (Dockerfile.good), тег = короткий SHA коммита
+build: ## Собрать образ, тег = короткий SHA коммита
 	docker build -f Dockerfile.good -t $(IMAGE):$(TAG) \
 		--build-arg GIT_SHA=$(GIT_SHA) --build-arg APP_VERSION=$(TAG) \
 		--label org.opencontainers.image.revision=$(GIT_SHA) .
